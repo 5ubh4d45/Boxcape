@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UserInterface/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://UserInterface/NextSceneButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UserInterface/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UserInterface/QuitButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UserInterface/RetryButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/new_theme.tres" type="Theme" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.239216, 0.32549, 0.513726, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.152941, 0.239216, 0.4, 1 )
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score" type="Label" parent="."]
+anchor_left = 0.94992
+anchor_top = 0.0203934
+anchor_right = 0.94992
+anchor_bottom = 0.0203934
+margin_left = -128.0
+margin_top = 20.9763
+margin_bottom = 51.9763
+text = "Score : %s"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.227451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pause" parent="PauseOverlay" instance=ExtResource( 3 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -177.908
+margin_top = -269.795
+margin_right = 87.0916
+margin_bottom = -222.795
+rect_scale = Vector2( 1.36, 1.36 )
+custom_colors/font_color = Color( 0.941406, 0.239833, 0.125031, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.27451, 0.270588, 0.270588, 1 )
+custom_constants/shadow_as_outline = 9
+text = "Game Paused"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -185.0
+margin_top = -106.0
+margin_right = 185.0
+margin_bottom = 105.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" parent="PauseOverlay/VBoxContainer" instance=ExtResource( 5 )]
+margin_right = 370.0
+margin_bottom = 67.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+custom_colors/font_color = Color( 0.188235, 0.866667, 1, 1 )
+
+[node name="mainscreen" parent="PauseOverlay/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 71.0
+margin_right = 370.0
+margin_bottom = 139.0
+text = "Main Screen"
+next_scene_path = "res://Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="PauseOverlay/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 143.0
+margin_right = 370.0
+margin_bottom = 211.0

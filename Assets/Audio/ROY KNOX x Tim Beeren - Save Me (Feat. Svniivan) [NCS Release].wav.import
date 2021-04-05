@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ROY KNOX x Tim Beeren - Save Me (Feat. Svniivan) [NCS Release].wav-de9255cc47dc44b36ea5c88e09e2d622.sample"
+
+[deps]
+
+source_file="res://Audio/ROY KNOX x Tim Beeren - Save Me (Feat. Svniivan) [NCS Release].wav"
+dest_files=[ "res://.import/ROY KNOX x Tim Beeren - Save Me (Feat. Svniivan) [NCS Release].wav-de9255cc47dc44b36ea5c88e09e2d622.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

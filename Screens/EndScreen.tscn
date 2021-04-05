@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UserInterface/NextSceneButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UserInterface/Title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UserInterface/QuitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/new_theme.tres" type="Theme" id=4]
+[ext_resource path="res://Assets/new_dynamicfont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Source/Objects/MenuMusic.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Screens/EndScreen.gd" type="Script" id=7]
+[ext_resource path="res://Assets/BG.png" type="Texture" id=8]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackGround" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 471.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="." instance=ExtResource( 2 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -283.5
+margin_top = -282.451
+margin_right = 283.5
+margin_bottom = -225.451
+custom_fonts/font = ExtResource( 5 )
+text = "Thank You For Playing!"
+
+[node name="label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -113.551
+margin_top = -198.344
+margin_right = 123.449
+margin_bottom = -89.3443
+text = "Your Score: %s
+Total Deaths: %s"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -153.0
+margin_top = -44.1619
+margin_right = 153.0
+margin_bottom = 80.8381
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="VBoxContainer" instance=ExtResource( 1 )]
+text = "Main Screen"
+next_scene_path = "res://Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 64.0
+margin_bottom = 125.0
+
+[node name="MenuMusic" parent="." instance=ExtResource( 6 )]

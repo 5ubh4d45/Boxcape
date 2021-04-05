@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="Title" type="Label"]
+anchor_left = 0.5
+anchor_top = 0.183
+anchor_right = 0.5
+anchor_bottom = 0.183
+margin_left = -132.0
+margin_top = 0.23999
+margin_right = 133.0
+margin_bottom = 47.24
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

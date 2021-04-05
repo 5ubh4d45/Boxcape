@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Source/Actors/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Assets/white square.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.486, 13 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14.7644, 2 )
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.88
+color_ramp = SubResource( 4 )
+
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( -14.2519, 13.8952, -14.0785, -13.8441, 13.9741, -13.8843, 13.8749, 13.6472 )
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource( 1 )
+speed = Vector2( 150, 1000 )
+
+[node name="Enemy" type="Sprite" parent="."]
+modulate = Color( 0.988235, 0.27451, 0.054902, 1 )
+scale = Vector2( 0.875, 0.875 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( -1.19209e-06, -7.15256e-07 )
+scale = Vector2( 2.2, 1.9 )
+process_parent = true
+physics_process_parent = true
+
+[node name="stompdetector" type="Area2D" parent="."]
+position = Vector2( 0, -12 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stompdetector"]
+modulate = Color( 0.235294, 0.658824, 1, 1 )
+position = Vector2( 0, -2 )
+shape = SubResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+modulate = Color( 0.988235, 0.27451, 0.054902, 1 )
+show_behind_parent = true
+scale = Vector2( 0.875, 0.875 )
+lifetime = 0.12
+local_coords = false
+process_material = SubResource( 5 )
+texture = ExtResource( 2 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 6 )
+[connection signal="body_entered" from="stompdetector" to="." method="_on_stompdetector_body_entered"]

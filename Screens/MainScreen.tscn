@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UserInterface/NextSceneButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UserInterface/Title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UserInterface/QuitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/new_theme.tres" type="Theme" id=4]
+[ext_resource path="res://Source/Objects/MenuMusic.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/font_title.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/Boxcape mainscreen.png" type="Texture" id=7]
+[ext_resource path="res://Screens/MainScreen.gd" type="Script" id=8]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -662.0
+margin_top = -385.0
+margin_right = 664.0
+margin_bottom = 386.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="." instance=ExtResource( 2 )]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -153.5
+margin_top = -208.297
+margin_right = 153.5
+margin_bottom = -151.297
+custom_fonts/font = ExtResource( 6 )
+text = "BoxCape"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -153.0
+margin_top = -62.0
+margin_right = 153.0
+margin_bottom = 63.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="VBoxContainer" instance=ExtResource( 1 )]
+next_scene_path = "res://Source/Levels/Tutorial.tscn"
+
+[node name="QuitButton" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 64.0
+margin_bottom = 125.0
+
+[node name="Credits" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -129.174
+margin_top = -50.2458
+margin_right = 77.8259
+margin_bottom = -19.2458
+rect_scale = Vector2( 0.56, 0.56 )
+custom_colors/font_color = Color( 0.541176, 1, 0.913725, 1 )
+text = "Made By : iXALE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuMusic" parent="." instance=ExtResource( 5 )]

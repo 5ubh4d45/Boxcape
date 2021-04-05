@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UserInterface/NextSceneButton.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.239216, 0.32549, 0.513726, 1 )
+border_color = Color( 0, 0, 0, 1 )
+shadow_size = 3
+shadow_offset = Vector2( 0.012, 0.012 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.152941, 0.239216, 0.4, 1 )
+border_color = Color( 0.145098, 0.164706, 0.203922, 1 )
+
+[node name="NextSceneButton" type="Button"]
+margin_right = 306.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+custom_colors/font_color = Color( 0.188235, 0.866667, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.6, 0.6, 0.6, 1 )
+text = "Play"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="." to="." method="_on_NextSceneButton_button_up"]

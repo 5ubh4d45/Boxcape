@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="puzzle platformer"
+config/name="Boxcape"
 run/main_scene="res://Screens/MainScreen.tscn"
 
 [autoload]
